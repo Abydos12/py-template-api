@@ -11,7 +11,7 @@ from src.models import User, UserBase
 
 app = FastAPI(
     title="py-template-api",
-    servers=[{"url": "http://127.0.0.1:5000", "description": "DEV"}],
+    servers=[{"url": "http://localhost:5000", "description": "DEV"}],
 )
 
 
@@ -43,4 +43,4 @@ def create_user(user: UserBase, db: Session = Depends(get_db)):
 
 if __name__ == "__main__":
     entities.Base.metadata.create_all(bind=engine)
-    uvicorn.run("src.app:app", host="127.0.0.1", port=5000, log_level="info")
+    uvicorn.run("src.app:app", host="localhost", port=5000, log_level="info")
