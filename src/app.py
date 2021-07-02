@@ -2,6 +2,7 @@ from typing import Optional, List
 
 import uvicorn
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 from src import entities, crud
@@ -11,7 +12,21 @@ from src.models import User, UserBase
 
 app = FastAPI(
     title="py-template-api",
-    servers=[{"url": "http://localhost:5000", "description": "DEV"}],
+    servers=[
+        {"url": "http://localhost:5000", "description": "DEV"},
+        {
+            "url": "http://ec2co-ecsel-1rbxjetkvloxm-1991231830.eu-west-1.elb.amazonaws.com:5000",
+            "description": "AWS",
+        },
+    ],
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
