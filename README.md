@@ -12,8 +12,8 @@ launch the app (into the project directory)
 
     uvicorn src.app:app --host 0.0.0.0 --port 5000
 
-
 ## TIP
+
 add the aws address to list of API server in `src/app.py`
 
 Example

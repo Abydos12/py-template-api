@@ -1,5 +1,8 @@
 fastapi~=0.65.2
 uvicorn~=0.14.0
-pydantic~=1.8.2
+pydantic[dotenv]~=1.8.2
 sqlalchemy~=1.4.19
-uvicorn[standard]
+uvicorn[standard]~=0.14.0
+passlib~=1.7.4
+python-multipart
+python-jose[cryptography]~=3.3.0
