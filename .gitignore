@@ -1,6 +1,8 @@
 
-src/__pycache__/
 
 .idea/
 
 .env
+
+app.db
+app/**/__pycache__/
