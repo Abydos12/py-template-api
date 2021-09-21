@@ -28,7 +28,7 @@ def create_user(user: UserCreate, users: UsersRepo = Depends()):
 
 @router.get("/{user_id}", response_model=User)
 def find_user_by_id(
-        user_id: str, users: UsersRepo = Depends()
+    user_id: str, users: UsersRepo = Depends()
 ) -> Union[RedirectResponse, UserEntity]:
     user: UserEntity = users.get_by_id(user_id)
     if user is None:

@@ -18,6 +18,7 @@ class UserCreate(UserBase):
     def password_validation(cls, v, field: ModelField):
         if len(v) < 2:
             raise ValueError(f"{field.alias} too short, must be 2 characters or more")
+        return v
 
 
 class User(UserBase, ORMModel):

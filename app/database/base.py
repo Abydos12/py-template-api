@@ -5,10 +5,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 from app import LOCAL_DB_URI
+from app.core import settings
 
-engine = create_engine(
-    LOCAL_DB_URI, connect_args={"check_same_thread": False}, echo=True
-)
+if settings.DATABASE_DSN is None:
+    engine = create_engine(
+        LOCAL_DB_URI, connect_args={"check_same_thread": False}, echo=True
+    )
+else:
+    engine = create_engine(settings.DATABASE_DSN, echo=True)
 Session = sessionmaker(bind=engine)
 
 Base = declarative_base()

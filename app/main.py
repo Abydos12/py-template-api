@@ -9,10 +9,7 @@ from app.core import settings
 from app.database import engine, Base
 from app.routes import router
 
-app = FastAPI(
-    title=settings.APP_NAME,
-    servers=[{"url": "http://localhost:5000", "description": "DEV"}],
-)
+app = FastAPI(title=settings.APP_NAME, servers=settings.APP_URIS)
 
 app.add_middleware(
     CORSMiddleware,

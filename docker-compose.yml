@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  py-template-api:
+    build:
+      context: .
+    container_name: py-template-api
+    ports:
+      - "5000:80"
+    environment:
+      JWT_SECRET_KEY: "8f1100144f441d3935bd35256039dfa143fa9c5d20fe585e290ed228313ffa34"
+      JWT_ALGORITHM: "HS256"
+      JWT_EXPIRE_MINUTES: 30
+      DATABASE_DSN: ""
